@@ -38,15 +38,45 @@ const Index = ({ movies }) => {
                                             <div className="relative overflow-hidden">
                                                 <img
                                                     src={`https://picsum.photos/seed/${movie.id}/600/400`}
-                                                    alt={movie.title}
+                                                    alt={movie.title || 'Movie poster'}
                                                     className="w-full h-64 object-cover transform hover:scale-110 transition-transform duration-300"
                                                 />
                                                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-1/3"></div>
                                             </div>
                                             
                                             <div className="p-6">
-                                                <h2 className="text-2xl font-bold mb-3">{movie.title}</h2>
-                                                <p className="text-gray-300 mb-4 line-clamp-3">{movie.description}</p>
+                                                <h2 className="text-2xl font-bold mb-3">{movie.title || 'Untitled Movie'}</h2>
+                                                <p className="text-gray-300 mb-4 line-clamp-3">{movie.description || 'No description available'}</p>
+
+                                                {movie.showtimes?.length > 0 && (
+                                                    <div className="mt-4">
+                                                        <h3 className="text-lg font-semibold mb-3 text-white">Showtimes</h3>
+                                                        <div className="flex flex-wrap gap-2">
+                                                            {movie.showtimes.map((showtime) => (
+                                                                <div
+                                                                    key={showtime.id}
+                                                                    className="flex items-center gap-2 bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-600 transition-colors"
+                                                                >
+                                                                    <span>
+                                                                        {new Date(showtime.show_time).toLocaleDateString(undefined, {
+                                                                            weekday: 'short',
+                                                                            month: 'short',
+                                                                            day: 'numeric'
+                                                                        })}{' '}
+                                                                        -{' '}
+                                                                        {new Date(showtime.show_time).toLocaleTimeString([], {
+                                                                            hour: '2-digit',
+                                                                            minute: '2-digit'
+                                                                        })}
+                                                                    </span>
+                                                                    <span className="text-red-500">
+                                                                        {showtime.seats_left} seats left
+                                                                    </span>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                )}
                                             </div>
                                         </div>
                                     ))}

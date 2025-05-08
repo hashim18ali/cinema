@@ -84,21 +84,26 @@ const LandingShow = ({ auth, movies }) => {
                                                         <h3 className="text-lg font-semibold mb-3 text-white">Showtimes</h3>
                                                         <div className="flex flex-wrap gap-2">
                                                             {movie.showtimes.map((showtime) => (
-                                                                <span
+                                                                <div
                                                                     key={showtime.id}
-                                                                    className="inline-block bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-600 transition-colors"
+                                                                    className="flex items-center gap-2 bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-600 transition-colors"
                                                                 >
-                                                                    {new Date(showtime.show_time).toLocaleDateString(undefined, {
-                                                                        weekday: 'short',
-                                                                        month: 'short',
-                                                                        day: 'numeric'
-                                                                    })}{' '}
-                                                                    -{' '}
-                                                                    {new Date(showtime.show_time).toLocaleTimeString([], {
-                                                                        hour: '2-digit',
-                                                                        minute: '2-digit'
-                                                                    })}
-                                                                </span>
+                                                                    <span>
+                                                                        {new Date(showtime.show_time).toLocaleDateString(undefined, {
+                                                                            weekday: 'short',
+                                                                            month: 'short',
+                                                                            day: 'numeric'
+                                                                        })}{' '}
+                                                                        -{' '}
+                                                                        {new Date(showtime.show_time).toLocaleTimeString([], {
+                                                                            hour: '2-digit',
+                                                                            minute: '2-digit'
+                                                                        })}
+                                                                    </span>
+                                                                    <span className="text-red-500">
+                                                                        {showtime.seats_left} seats left
+                                                                    </span>
+                                                                </div>
                                                             ))}
                                                         </div>
                                                     </div>

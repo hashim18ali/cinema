@@ -67,9 +67,6 @@ const BookingModal = ({ setShowModal, showtimes }) => {
                                 </option>
                             ))}
                         </select>
-                        {/* {errors.showtime_id && (
-                            <div className="text-sm text-red-600 mt-1">{errors.showtime_id}</div>
-                        )} */}
                         <InputError message={errors.showtime_id} className="mt-2" />
                     </div>
                     <div className="mb-6">

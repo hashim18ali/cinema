@@ -66,7 +66,6 @@ export default function Login({ status, canResetPassword }) {
                                             className="w-full px-10 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-white placeholder-gray-400"
                                             placeholder="Enter your email"
                                             autoComplete="username"
-                                            required
                                         />
                                     </div>
                                     <InputError message={errors.email} className="mt-2 text-sm text-red-400" />
@@ -91,7 +90,6 @@ export default function Login({ status, canResetPassword }) {
                                             className="w-full px-10 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-white placeholder-gray-400"
                                             placeholder="Enter your password"
                                             autoComplete="current-password"
-                                            required
                                         />
                                     </div>
                                     <InputError message={errors.password} className="mt-2 text-sm text-red-400" />
