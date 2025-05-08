@@ -1,8 +1,10 @@
+import MessageAlert from '@/Components/UI/MessageAlert';
 import { Head, Link } from '@inertiajs/react';
 
 export default function Welcome({ auth }) {
     return (
         <>
+        <MessageAlert />
             <Head title="Welcome to Cinema Booking" />
             <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white flex items-center justify-center px-4">
                 <div className="max-w-4xl w-full text-center">

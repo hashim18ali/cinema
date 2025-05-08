@@ -1,10 +1,12 @@
 import React from 'react';
 import { Head, Link } from '@inertiajs/react';
+import MessageAlert from '@/Components/UI/MessageAlert';
 
 const LandingShow = ({ auth, movies }) => {
 
     return (
         <>
+           <MessageAlert />
             <Head title="Welcome to Cinema Booking" />
             <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white px-4 pt-12 pb-20">
                 <div className="max-w-7xl mx-auto text-center">

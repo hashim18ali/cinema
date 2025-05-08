@@ -26,7 +26,7 @@ class StoreBookingRequest extends FormRequest
     public function rules()
     {
         return [
-            'showtime_id' => 'required|',
+            'showtime_id' => 'required|exists:showtimes,id',
             'num_tickets' => 'required|integer|min:1|max:30',
         ];
     }
@@ -40,6 +40,7 @@ class StoreBookingRequest extends FormRequest
             if ($showtimeId && $numTickets) {
                 $seatsBooked = DB::table('bookings')
                     ->where('showtime_id', $showtimeId)
+                    ->where('status', '!=', 'cancelled')
                     ->sum('num_tickets');
 
                 $remainingSeats = 30 - $seatsBooked;
@@ -51,4 +52,3 @@ class StoreBookingRequest extends FormRequest
         });
     }
 }
-

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, useForm } from '@inertiajs/react';
 import BookingModal from '@/Components/UI/BookingModal';
+import MessageAlert from '@/Components/UI/MessageAlert';
 
 const Index = ({ showtimes, bookings, cancelledBookings }) => {
   const [showModal, setShowModal] = useState(false);
@@ -78,6 +79,7 @@ const Index = ({ showtimes, bookings, cancelledBookings }) => {
 
   return (
     <AuthenticatedLayout>
+      <MessageAlert/>
       <Head title="Bookings" />
       <div className="py-12">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">

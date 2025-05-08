@@ -11,6 +11,11 @@ class Booking extends Model
 
     protected $fillable = ['user_id', 'showtime_id', 'num_tickets', 'booking_reference', 'status'];
 
+    public function scopeActive($query)
+    {
+        return $query->where('status', '!=', 'cancelled');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -21,4 +26,3 @@ class Booking extends Model
         return $this->belongsTo(Showtime::class);
     }
 }
-

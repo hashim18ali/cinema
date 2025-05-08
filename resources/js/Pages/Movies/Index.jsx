@@ -1,10 +1,12 @@
 import React from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
+import MessageAlert from '@/Components/UI/MessageAlert';
 
 const Index = ({ movies }) => {
     return (
         <AuthenticatedLayout>
+            <MessageAlert />
             <Head title="Movies" />
             <div className="py-12">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
