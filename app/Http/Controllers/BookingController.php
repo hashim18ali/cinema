@@ -97,8 +97,9 @@ class BookingController extends Controller
     {
         $showTime = Carbon::parse($booking->showtime->show_time);
         $now = Carbon::now();
+        $oneHourBeforeShow = $showTime->copy()->subHour();
 
-        if ($now->addHour()->greaterThan($showTime)) {
+        if ($now->greaterThan($oneHourBeforeShow)) {
             return redirect()->back()->with('error', 'You can only cancel a booking at least 1 hour before the show time.');
         }
         $booking->update([
