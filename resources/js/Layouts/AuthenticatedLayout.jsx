@@ -1,5 +1,5 @@
 import Dropdown from '@/Components/Dropdown';
-import NavLink from '@/Components/NavLink';
+import StyledNavLink from '@/Components/StyledNavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link, usePage } from '@inertiajs/react';
 import { useState } from 'react';
@@ -11,32 +11,33 @@ export default function AuthenticatedLayout({ header, children }) {
         useState(false);
 
     return (
-        <div className="min-h-screen bg-gray-100">
-            <nav className="border-b border-gray-100 bg-white">
+        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white">
+            <nav className="bg-gray-800 border-b border-gray-700">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="flex h-16 justify-between">
+                    <div className="flex h-16 justify-between items-center">
                         <div className="flex">
                             <div className="flex shrink-0 items-center">
-                                <Link href="/">
-                                <span className="text-red-500">Chill Out</span>
+                                <Link href="/" className="text-red-500 text-2xl font-bold">
+                                    <span>🎬</span>
+                                    <span className="ml-2">Chill Out</span>
                                 </Link>
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink
+                                <StyledNavLink
                                     href={route('dashboard')}
                                     active={route().current('dashboard')}
                                 >
                                     Movies
-                                </NavLink>
+                                </StyledNavLink>
                             </div>
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink
+                                <StyledNavLink
                                     href={route('bookings.index')}
                                     active={route().current('bookings.index')}
                                 >
                                     Bookings
-                                </NavLink>
+                                </StyledNavLink>
                             </div>
                         </div>
 
